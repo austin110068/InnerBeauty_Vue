@@ -36,33 +36,39 @@
 </template>
 
 <script>
-import axios from 'axios'
+  import axios from 'axios'
 
-export default {
-  name: 'Home',
-  data() {
-    return {
-      latestProducts: []
-    }
-  },
-  components: {
-  },
-  mounted() {
-    this.getLatestProducts()
-  },
-  methods: {
-    getLatestProducts() {
-      axios
-        .get('/api/v1/latest-products/')
-        .then(response => {
-          this.latestProducts = response.data
-        })
-        .catch(error => {
-          console.log(error)
-        })
-    }
-  }
-}
+  export default {
+    name: 'Home',
+    data() {
+      return {
+        latestProducts: []
+      }
+    },
+    components: {
+    },
+    mounted() {
+      this.getLatestProducts();
+
+      document.title = 'Home | Djackets';
+    },
+    methods: {
+      async getLatestProducts() {
+        this.$store.commit('setIsLoading', true);
+
+        await axios
+          .get('/api/v1/latest-products/')
+          .then(response => {
+            this.latestProducts = response.data
+          })
+          .catch(error => {
+            console.log(error)
+          });
+
+        this.$store.commit('setIsLoading', false);
+      },
+    },
+  };
 </script>
 
 <style scoped>
