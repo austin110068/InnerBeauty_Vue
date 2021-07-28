@@ -4,7 +4,7 @@
         <td>${{ item.product.price }}</td>
         <td>
             {{ item.quantity }}
-            <a @click="decrementQuantity(item)">-</a>
+            <a @click="decrementQuantity(item)">&nbsp; - &nbsp;</a>
             <a @click="incrementQuantity(item)">+</a>
         </td>
         <td>${{ getItemTotal(item).toFixed(2) }}</td>
@@ -16,34 +16,34 @@
 export default {
     name: 'CartItem',
     props: {
-        initialItem: Object
+        initialItem: Object,
     },
     data() {
         return {
-            item: this.initialItem
-        }
+            item: this.initialItem,
+        };
     },
     methods: {
         getItemTotal(item) {
-            return item.quantity * item.product.price
+            return item.quantity * item.product.price;
         },
         decrementQuantity(item) {
-            item.quantity -= 1
+            item.quantity -= 1;
             if (item.quantity === 0) {
-                this.$emit('removeFromCart', item)
-            }
-            this.updateCart()
+                this.$emit('removeFromCart', item);
+            };
+            this.updateCart();
         },
         incrementQuantity(item) {
-            item.quantity += 1
-            this.updateCart()
+            item.quantity += 1;
+            this.updateCart();
         },
         updateCart() {
-            localStorage.setItem('cart', JSON.stringify(this.$store.state.cart))
+            localStorage.setItem('cart', JSON.stringify(this.$store.state.cart));
         },
         removeFromCart(item) {
-            this.$emit('removeFromCart', item)
-            this.updateCart()
+            this.$emit('removeFromCart', item);
+            this.updateCart();
         },
     },
 }
