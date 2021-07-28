@@ -26,31 +26,32 @@
 <script>
     import axios from 'axios';
     import OrderSummary from '@/components/OrderSummary.vue';
+
     export default {
         name: 'MyAccount',
         components: {
-            OrderSummary
+            OrderSummary,
         },
         data() {
             return {
-                orders: []
-            }
+                orders: [],
+            };
         },
         mounted() {
-            document.title = 'My account | Djackets'
-            this.getMyOrders()
+            document.title = 'My account | Djackets';
+            this.getMyOrders();
         },
         methods: {
             logout() {
-                axios.defaults.headers.common["Authorization"] = ""
-                localStorage.removeItem("token")
-                localStorage.removeItem("username")
-                localStorage.removeItem("userid")
-                this.$store.commit('removeToken')
-                this.$router.push('/')
+                axios.defaults.headers.common["Authorization"] = "";
+                localStorage.removeItem("token");
+                localStorage.removeItem("username");
+                localStorage.removeItem("userid");
+                this.$store.commit('removeToken');
+                this.$router.push('/');
             },
             async getMyOrders() {
-                this.$store.commit('setIsLoading', true)
+                this.$store.commit('setIsLoading', true);
                 await axios
                     .get('/api/v1/orders/')
                     .then(response => {
@@ -58,8 +59,8 @@
                     })
                     .catch(error => {
                         console.log(error)
-                    })
-                this.$store.commit('setIsLoading', false)
+                    });
+                this.$store.commit('setIsLoading', false);
             }
         }
     }
