@@ -25,7 +25,7 @@
 
                     <div class="field">
                         <div class="control">
-                            <button class="button is-dark">Log in</button>
+                            <button class="button" style="background-color: #FF858D">Log in</button>
                         </div>
                     </div>
 
@@ -50,7 +50,7 @@
             };
         },
         mounted() {
-            document.title = 'Log In | Djackets';
+            document.title = 'Log In | Inner Beauty';
         },
         methods: {
             async submitForm() {

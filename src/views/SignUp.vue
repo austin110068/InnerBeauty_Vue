@@ -32,7 +32,7 @@
 
                     <div class="field">
                         <div class="control">
-                            <button class="button is-dark">Sign up</button>
+                            <button class="button" style="background-color: #FF858D">Sign up</button>
                         </div>
                     </div>
 

@@ -1,23 +1,23 @@
 <template>
   <div class="home">
-    <section class="hero is-medium is-dark mb-6">
+    <section class="hero is-medium mb-6" style="background-color: #FFADB3">
         <div class="hero-body has-text-centered">
             <p class="title mb-6">
-                Welcome to Djacket
+                Welcome to Inner Beauty
             </p>
             <p class="subtitle">
-                The best jacket store online
+                Discover your the deepest secret
             </p>
         </div>
     </section>
 
     <div class="columns is-multiline">
       <div class="column is-12">
-          <h2 class="is-size-2 has-text-centered">Latest products</h2>
+          <h2 class="is-size-2 has-text-centered">Maybe you'll like...</h2>
       </div>
 
       <ProductBox 
-        v-for="product in latestProducts"
+        v-for="product in randomProducts"
         v-bind:key="product.id"
         v-bind:product="product" />
     </div>
@@ -32,25 +32,25 @@
     name: 'Home',
     data() {
       return {
-        latestProducts: []
+        randomProducts: []
       }
     },
     components: {
       ProductBox
     },
     mounted() {
-      this.getLatestProducts();
+      this.getRandomProducts();
 
-      document.title = 'Home | Djackets';
+      document.title = 'Home | Inner Beauty';
     },
     methods: {
-      async getLatestProducts() {
+      async getRandomProducts() {
         this.$store.commit('setIsLoading', true);
 
         await axios
-          .get('/api/v1/latest-products/')
+          .get('/api/v1/random-products/')
           .then(response => {
-            this.latestProducts = response.data
+            this.randomProducts = response.data
           })
           .catch(error => {
             console.log(error)

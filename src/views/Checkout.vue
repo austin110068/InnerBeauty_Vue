@@ -109,7 +109,7 @@
                 <template v-if="cartTotalLength">
                     <hr>
 
-                    <button class="button is-dark" @click="submitForm">Pay with Stripe</button>
+                    <button class="button" style="background-color: #FF858D" @click="submitForm">Pay with Stripe</button>
                 </template>
             </div>
         </div>
@@ -139,7 +139,7 @@
             };
         },
         mounted() {
-            document.title = 'Checkout | Djackets';
+            document.title = 'Checkout | Inner Beauty';
             this.cart = this.$store.state.cart;
 
             if (this.cartTotalLength > 0) {

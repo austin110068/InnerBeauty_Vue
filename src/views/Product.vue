@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="control">
-                        <a class="button is-dark" @click="addToCart()">Add to cart</a>
+                        <a class="button" style="background-color: #FF858D" @click="addToCart">Add to cart</a>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                     .get(`/api/v1/products/${category_slug}/${product_slug}`)
                     .then(response => {
                         this.product = response.data
-                        document.title = this.product.name + ' | Djackets'
+                        document.title = this.product.name + ' | Inner Beauty'
                     })
                     .catch(error => {
                         console.log(error)

@@ -6,7 +6,7 @@
             </div>
 
             <ProductBox 
-                v-for="product in latestProducts"
+                v-for="product in category.products"
                 v-bind:key="product.id"
                 v-bind:product="product" />
         </div>
@@ -49,7 +49,7 @@ export default {
                 .get(`/api/v1/products/${categorySlug}/`)
                 .then(response => {
                     this.category = response.data
-                    document.title = this.category.name + ' | Djackets'
+                    document.title = this.category.name + ' | Inner Beauty'
                 })
                 .catch(error => {
                     console.log(error)

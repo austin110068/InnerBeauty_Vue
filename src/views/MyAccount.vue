@@ -38,7 +38,7 @@
             };
         },
         mounted() {
-            document.title = 'My account | Djackets';
+            document.title = 'My account | Inner Beauty';
             this.getMyOrders();
         },
         methods: {

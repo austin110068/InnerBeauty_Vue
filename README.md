@@ -1,4 +1,4 @@
-# djackets_vue
+# inner_beauty_vue
 
 ## Project setup
 ```
