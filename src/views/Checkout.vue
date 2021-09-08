@@ -166,7 +166,12 @@
             }
             if (this.phone === '') {
                 this.errors.push('The phone field is missing!');
+            } else {
+                if (isNaN(parseInt(this.phone))) {
+                    this.errors.push('Please only include numbers inside the phone field')
+                }
             }
+            
             if (this.address === '') {
                 this.errors.push('The address field is missing!');
             }
@@ -216,6 +221,7 @@
                 .then(response => {
                     this.$store.commit('clearCart')
                     this.$router.push('/cart/success')
+                    return axios.post('/api/v1/checkout_success_sms/', data);
                 })
                 .catch(error => {
                     this.errors.push('Something went wrong. Please try again')
