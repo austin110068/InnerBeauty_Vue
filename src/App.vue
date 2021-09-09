@@ -65,7 +65,7 @@
       <router-view/>
     </section>
 
-    <footer class="footer">
+    <footer class="footer" style="background-color: #FFD6D6;">
       <p class="has-text-centered">Copyright (c) 2021</p>
     </footer>
   </div>
