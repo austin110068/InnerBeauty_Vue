@@ -1,4 +1,4 @@
-# inner_beauty_vue
+# InnerBeauty_Vue
 
 ## Overview
 - Implemented an e-commerce website using **Vue.js** for user interface, **Django** REST framework to build APIs and backend, and connected by **Axios**.
