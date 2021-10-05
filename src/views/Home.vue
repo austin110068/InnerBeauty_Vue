@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <section class="hero is-medium mb-6" style="background-color: #FFADB3">
+    <section class="hero is-small mb-6" style="background-color: #FFADB3">
         <div class="hero-body has-text-centered">
             <p class="title mb-6">
                 Welcome to Inner Beauty
